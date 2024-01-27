@@ -28,7 +28,7 @@ class Location
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 7)]
     private ?string $longitude = null;
 
-    #[ORM\OneToMany(mappedBy: 'location', targetEntity: Forecast::class, orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'location', targetEntity: Forecast::class)]
     private Collection $forecasts;
 
     public function __construct()
@@ -117,5 +117,9 @@ class Location
         }
 
         return $this;
+    }
+    public function __toString(): string
+    {
+        return "{$this->getCity()}, {$this->getCountry()}";
     }
 }

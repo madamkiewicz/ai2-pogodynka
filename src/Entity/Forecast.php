@@ -18,7 +18,7 @@ class Forecast
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $date = null;
 
-    #[ORM\Column]
+    #[ORM\Column(nullable: true)]
     private ?int $temperature = null;
 
     #[ORM\Column(nullable: true)]
